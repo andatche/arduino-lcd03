@@ -1,5 +1,5 @@
 /*
-  custom_characters.ino - Arduino library for I2C LCD03 display from Robot Electronics
+  CustomChars.ino - Arduino library for I2C LCD03 display from Robot Electronics
   see http://www.robot-electronics.co.uk/htm/Lcd03tech.htm
   Copyright (c) 2013 Ben Arblaster.  All right reserved.
 
@@ -17,3 +17,37 @@
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+#include <Wire.h>
+#include "LCD03.h"
+
+// Create new LCD03 instance
+LCD03 lcd;
+
+// Define the custom char bytes
+byte smiley[8] = {
+  0b00000,
+  0b00000,
+  0b01010,
+  0b00000,
+  0b00000,
+  0b10001,
+  0b01110,
+  0b00000
+};
+
+void setup() {
+  // Initialise a 20x4 LCD
+  lcd.begin(20, 4);
+  
+  // create a new character
+  lcd.createChar(0, smiley);
+}
+
+// Fill the LCD with our custom smiley
+void loop() {
+  // Write the first custom char to the LCD
+  lcd.write(0);
+
+  // Wait for 1 second
+  delay(1000);
+}
