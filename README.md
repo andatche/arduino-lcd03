@@ -178,7 +178,7 @@ void setup() {
   lcd.backlight();
   
   // Write to the LCD
-  lcd.write("Hello world");
+  lcd.print("Hello world!");
 
   // Wait for 5 seconds
   delay(5000);
@@ -192,7 +192,7 @@ void loop() {
   lcd.home();
 
   // Print the uptime in millis
-  lcd.write(millis());
+  lcd.print(millis());
 }
 ```
 
