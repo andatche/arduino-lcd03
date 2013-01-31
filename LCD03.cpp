@@ -41,48 +41,6 @@ void LCD03::begin(uint8_t cols, uint8_t rows) {
   clear();
 }
 
-void LCD03::clear() {
-  send(LCD_CLEARDISPLAY);
-}
-
-void LCD03::backlight() {
-  send(LCD_BACKLIGHTON);
-}
-
-void LCD03::noBacklight() {
-  send(LCD_BACKLIGHTOFF);
-}
-
-// provided for compatibility with LiquidCrystal - only backlight is switched
-void LCD03::display() {
-  send(LCD_BACKLIGHTON);
-}
-
-// provided for compatibility with LiquidCrystal - only backlight is switched
-void LCD03::noDisplay() {
-  send(LCD_BACKLIGHTOFF);
-}
-
-void LCD03::home() {
-  send(LCD_CURSORHOME);
-}
-
-void LCD03::noBlink() {
-  send(LCD_CURSORON);
-}
-
-void LCD03::blink() {
-  send(LCD_CURSORBLINK);
-}
-
-void LCD03::noCursor() {
-  send(LCD_CURSOROFF);
-}
-
-void LCD03::cursor() {
-  send(LCD_CURSORON);
-}
-
 void LCD03::setCursor(uint8_t pos) {
   pos++;
   Wire.beginTransmission(_i2c_address);
@@ -102,30 +60,6 @@ void LCD03::setCursor(uint8_t col, uint8_t row) {
   Wire.write(row);
   Wire.write(col);
   Wire.endTransmission();
-}
-
-void LCD03::newLine() {
-  send(LCD_LINEFEED);
-}
-
-void LCD03::cursorDown() {
-  send(LCD_CURSORDOWN);
-}
-
-void LCD03::cursorUp() {
-  send(LCD_CURSORUP);
-}
-
-void LCD03::clearColumn() {
-  send(LCD_CLEARCOLUMN);
-}
-
-void LCD03::backspace() {
-  send(LCD_BACKSPACE);
-}
-
-void LCD03::tab() {
-  send(LCD_TAB);
 }
 
 void LCD03::tabSet(uint8_t ts) {

@@ -120,5 +120,71 @@ private:
   void send(uint8_t);
 };
 
+inline void LCD03::clear() {
+  send(LCD_CLEARDISPLAY);
+}
+
+inline void LCD03::backlight() {
+  send(LCD_BACKLIGHTON);
+}
+
+inline void LCD03::noBacklight() {
+  send(LCD_BACKLIGHTOFF);
+}
+
+// provided for compatibility with LiquidCrystal - only backlight is switched
+inline void LCD03::display() {
+  send(LCD_BACKLIGHTON);
+}
+
+// provided for compatibility with LiquidCrystal - only backlight is switched
+inline void LCD03::noDisplay() {
+  send(LCD_BACKLIGHTOFF);
+}
+
+inline void LCD03::home() {
+  send(LCD_CURSORHOME);
+}
+
+inline void LCD03::noBlink() {
+  send(LCD_CURSORON);
+}
+
+inline void LCD03::blink() {
+  send(LCD_CURSORBLINK);
+}
+
+inline void LCD03::noCursor() {
+  send(LCD_CURSOROFF);
+}
+
+inline void LCD03::cursor() {
+  send(LCD_CURSORON);
+}
+
+inline void LCD03::newLine() {
+  send(LCD_LINEFEED);
+}
+
+inline void LCD03::cursorDown() {
+  send(LCD_CURSORDOWN);
+}
+
+inline void LCD03::cursorUp() {
+  send(LCD_CURSORUP);
+}
+
+inline void LCD03::clearColumn() {
+  send(LCD_CLEARCOLUMN);
+}
+
+inline void LCD03::backspace() {
+  send(LCD_BACKSPACE);
+}
+
+inline void LCD03::tab() {
+  send(LCD_TAB);
+}
+
 #endif
 
