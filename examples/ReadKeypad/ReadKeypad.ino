@@ -18,7 +18,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include <Wire.h>
-#include "LCD03.h"
+#include <LCD03.h>
 
 // Create new LCD03 instance
 LCD03 lcd;
@@ -49,7 +49,7 @@ void loop() {
   }
    
   // Check if keys 1 and * are pressed simultaneously
-  if(keystate & (KEYPAD_1 | KEYPAD_2) == (KEYPAD_1 | KEYPAD_2)) {
+  if(keystate & (KEYPAD_1 | KEYPAD_STAR) == (KEYPAD_1 | KEYPAD_2)) {
     lcd.print("Keys 1 and * are pressed!");
   }
    
