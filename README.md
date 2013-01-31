@@ -6,6 +6,10 @@ The library is released under the GNU LGPL 2.1.
 
 For source, issues or to contribute, please see the [project page](https://github.com/andatche/arduino-lcd03) on GitHub.
 
+## Downloading
+
+The latest stable release is version 1.0 [(zip)](https://github.com/andatche/arduino-lcd03/archive/v1.0.zip) [(tar.gz)](https://github.com/andatche/arduino-lcd03/archive/v1.0.tar.gz) [(browse)](https://github.com/andatche/arduino-lcd03/tree/v1.0). 
+
 ## Installing
 
 Simply navigate to your Arduino libraries directory and clone the git repository into a directory named 'LCD03'.
