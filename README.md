@@ -238,7 +238,7 @@ if(keystate == KEYPAD_1) {
 }
 
 // Check if keys 1 and * are pressed simultaneously
-if(keystate & (KEYPAD_1 | KEYPAD_2) == (KEYPAD_1 | KEYPAD_2)) {
+if(keystate & (KEYPAD_1 | KEYPAD_STAR) == (KEYPAD_1 | KEYPAD_2)) {
   // Do something
 }
 
