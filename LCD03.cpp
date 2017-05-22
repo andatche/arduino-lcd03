@@ -25,18 +25,18 @@
 
 char _i2c_address;
 
-LCD03::LCD03() {
-  // Convert 8-bit address from LCD to 7-bit address for Wire
-  _i2c_address = I2C_ADDR>>1;
-}
-
 LCD03::LCD03(char i2c_address) {
   // Convert 8-bit address from LCD to 7-bit address for Wire
   _i2c_address = i2c_address>>1;
 }
 
-void LCD03::begin(uint8_t cols, uint8_t rows) {
-  Wire.begin();
+LCD03::LCD03(char i2c_address) {
+    // Convert 8-bit address from LCD to 7-bit address for Wire
+    _i2c_address = i2c_address>>1;
+}
+
+void LCD03::begin(uint8_t cols, uint8_t rows, uint8_t sda_pin=SDA, uint8_t scl_pin) {
+  Wire.begin(sda_pin, scl_pin);
   noCursor();
   clear();
 }

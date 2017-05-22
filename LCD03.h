@@ -74,11 +74,10 @@
 class LCD03 : public Print {
 public:
   // Constructors
-  LCD03();
-  LCD03(char);
+  LCD03(char i2c_address=I2C_ADDR);
   
   // LiquidCrystal compatible functions  
-  void begin(uint8_t, uint8_t);
+  void begin(uint8_t cols, uint8_t rows, uint8_t sda_pin=SDA, uint8_t scl_pin=SCL);
   void clear();
   void home();
   void setCursor(uint8_t);
