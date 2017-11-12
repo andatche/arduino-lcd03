@@ -8,7 +8,7 @@ For source, issues or to contribute, please see the [project page](https://githu
 
 ## Downloading
 
-The latest stable release is version 1.0 [(zip)](https://github.com/andatche/arduino-lcd03/archive/v1.0.zip) [(tar.gz)](https://github.com/andatche/arduino-lcd03/archive/v1.0.tar.gz) [(browse)](https://github.com/andatche/arduino-lcd03/tree/v1.0). 
+The latest stable release is version 1.1 [(zip)](https://github.com/andatche/arduino-lcd03/archive/v1.1.zip) [(tar.gz)](https://github.com/andatche/arduino-lcd03/archive/v1.1.tar.gz) [(browse)](https://github.com/andatche/arduino-lcd03/tree/v1.1).
 
 ## Installing
 
@@ -33,14 +33,14 @@ New LCD03 at `i2c_address`. The parameter is optional and defaults to LCD03's de
 
 *i2c_address (char): 8-bit I2C address of the display (as displayed during initilisation)*
 
-### begin(cols, rows, [i2c_sda][, i2c_scl])
+### begin(cols, rows, [i2c_sda], [i2c_scl])
 
 Initialise the display of size `cols` * `rows`, clear the display and set the cursor to the top-left.
 
 *cols (uint8_t): the number of display columns*  
-*rows (uint8_t): the number of display rows*
-*i2c_sda (uint8_t): the data pin for the i2c connection (optinal, defaults to setting SDA from Wire.h)
-*i2c_scl (uint8_t): the clock pin for the i2c connection (optinal, defaults to setting SCL from Wire.h)
+*rows (uint8_t): the number of display rows*  
+*i2c_sda (uint8_t): the data pin for the i2c connection (optinal, defaults to setting SDA from Wire.h)*  
+*i2c_scl (uint8_t): the clock pin for the i2c connection (optinal, defaults to setting SCL from Wire.h)*  
 
 ### clear()
 
@@ -60,8 +60,8 @@ Move the cursor to `pos`.
 
 Move the cursor to `col`, `row`.
 
-*col (uint8_t): column, Arduino format (0-19)*
-*col (uint8_t): row, Arduino format (0-3)*
+*col (uint8_t): column, Arduino format (0-19)*  
+*row (uint8_t): row, Arduino format (0-3)*
 
 ### write(data)
 
