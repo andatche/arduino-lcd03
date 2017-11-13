@@ -8,7 +8,7 @@ For source, issues or to contribute, please see the [project page](https://githu
 
 ## Downloading
 
-The latest stable release is version 1.1 [(zip)](https://github.com/andatche/arduino-lcd03/archive/v1.1.zip) [(tar.gz)](https://github.com/andatche/arduino-lcd03/archive/v1.1.tar.gz) [(browse)](https://github.com/andatche/arduino-lcd03/tree/v1.1).
+The latest stable release is version 1.1.1 [(zip)](https://github.com/andatche/arduino-lcd03/archive/v1.1.1.zip) [(tar.gz)](https://github.com/andatche/arduino-lcd03/archive/v1.1.1.tar.gz) [(browse)](https://github.com/andatche/arduino-lcd03/tree/v1.1.1).
 
 ## Installing
 
