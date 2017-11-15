@@ -1,6 +1,6 @@
 # LCD03 Arduino library
 
-LCD03 is an [Arduino](http://arduino.cc/) library for [I2C](http://en.wikipedia.org/wiki/I²C) control of the LCD03 20x4 and 16x2 serial LCD modules from [Robot Electronics](http://www.robot-electronics.co.uk), see [the datasheet](http://www.robot-electronics.co.uk/htm/Lcd03tech.htm) for details. It aims to maintain compatibility with the Arduino [LiquidCrystal](http://arduino.cc/en/Reference/LiquidCrystal) library (version 0017 onwards) , though some features of LiquidCrystal are ommited and additonal features are provided. It supports all features of the LCD03 including custom characters and the ability to read the keypad. Supports Arudino 1.0.0 and newer.
+LCD03 is an [Arduino](http://arduino.cc/) library for [I2C](http://en.wikipedia.org/wiki/I²C) control of the LCD03 20x4 and 16x2 serial LCD modules from [Robot Electronics](http://www.robot-electronics.co.uk), see [the datasheet](http://www.robot-electronics.co.uk/htm/Lcd03tech.htm) for details. It aims to maintain compatibility with the Arduino [LiquidCrystal](http://arduino.cc/en/Reference/LiquidCrystal) library (version 0017 onwards) , though some features of LiquidCrystal are ommited and additonal features are provided. It supports all features of the LCD03 including custom characters and the ability to read the keypad. Supports Arudino 1.0.0 and newer on avr and ESP8266 architectures.
 
 The library is released under the GNU LGPL 2.1.
 
@@ -8,7 +8,7 @@ For source, issues or to contribute, please see the [project page](https://githu
 
 ## Downloading
 
-The latest stable release is version 1.1.1 [(zip)](https://github.com/andatche/arduino-lcd03/archive/v1.1.1.zip) [(tar.gz)](https://github.com/andatche/arduino-lcd03/archive/v1.1.1.tar.gz) [(browse)](https://github.com/andatche/arduino-lcd03/tree/v1.1.1).
+The latest stable release is version 1.1.2 [(zip)](https://github.com/andatche/arduino-lcd03/archive/v1.1.2.zip) [(tar.gz)](https://github.com/andatche/arduino-lcd03/archive/v1.1.2.tar.gz) [(browse)](https://github.com/andatche/arduino-lcd03/tree/v1.1.2).
 
 ## Installing
 
@@ -27,11 +27,13 @@ You'll need to restart the Arduino IDE after installing before the library will 
 
 The following public functions are exposed.
 
-### LCD03([i2c_address])
+### LCD03([i2c_address], [i2c_sda], [i2c_scl])
 
-New LCD03 at `i2c_address`. The parameter is optional and defaults to LCD03's default I2C address (0xC6).
+New LCD03 at `i2c_address`. If `i2c_address` is omitted the LCD03's default I2C address (0xC6) is used. On ESP8266 architectures only, `i2c_sda` and `i2c_scl` can optionally be used to set the data (SDA) and clock (SCL) pins used for I2C.
 
-*i2c_address (char): 8-bit I2C address of the display (as displayed during initilisation)*
+*i2c_address (char): 8-bit I2C address of the display (optional, as displayed during LCD initilisation)*  
+*i2c_sda (uint8_t): the data (SDA) line pin for I2C (ESP8266 only, optional, defaults to setting SDA from Wire.h)*  
+*i2c_scl (uint8_t): the clock (SCL) line pin for I2C (ESP8266 only, optional, defaults to setting SCL from Wire.h)*  
 
 ### begin(cols, rows, [i2c_sda], [i2c_scl])
 
@@ -39,8 +41,6 @@ Initialise the display of size `cols` * `rows`, clear the display and set the cu
 
 *cols (uint8_t): the number of display columns*  
 *rows (uint8_t): the number of display rows*  
-*i2c_sda (uint8_t): the data pin for the i2c connection (optinal, defaults to setting SDA from Wire.h)*  
-*i2c_scl (uint8_t): the clock pin for the i2c connection (optinal, defaults to setting SCL from Wire.h)*  
 
 ### clear()
 
