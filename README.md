@@ -35,7 +35,7 @@ New LCD03 at `i2c_address`. If `i2c_address` is omitted the LCD03's default I2C 
 *i2c_sda (uint8_t): the data (SDA) line pin for I2C (ESP8266 only, optional, defaults to setting SDA from Wire.h)*  
 *i2c_scl (uint8_t): the clock (SCL) line pin for I2C (ESP8266 only, optional, defaults to setting SCL from Wire.h)*  
 
-### begin(cols, rows, [i2c_sda], [i2c_scl])
+### begin(cols, rows)
 
 Initialise the display of size `cols` * `rows`, clear the display and set the cursor to the top-left.
 
