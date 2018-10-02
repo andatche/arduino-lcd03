@@ -43,6 +43,15 @@ backlight	KEYWORD2
 noBacklight	KEYWORD2
 bufferFreeBytes	KEYWORD2
 readKeypad	KEYWORD2
+disableMessage KEYWORD2
+enableMessage KEYWORD2
+saveMessage KEYWORD2
+doubleRateScan KEYWORD2
+normalRateScan KEYWORD2
+changeContrast KEYWORD2
+changeBrightness KEYWORD2
+setType KEYWORD2
+changeAddress KEYWORD2
 
 # Constants (LITERAL1)
 KEYPAD_1	LITERAL1
