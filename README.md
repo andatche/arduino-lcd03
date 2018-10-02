@@ -1,6 +1,6 @@
 # LCD03 Arduino library
 
-LCD03 is an [Arduino](http://arduino.cc/) library for [I2C](http://en.wikipedia.org/wiki/I²C) control of the LCD03 20x4 and 16x2 serial LCD modules from [Robot Electronics](http://www.robot-electronics.co.uk), see [the datasheet](http://www.robot-electronics.co.uk/htm/Lcd03tech.htm) for details. It aims to maintain compatibility with the Arduino [LiquidCrystal](http://arduino.cc/en/Reference/LiquidCrystal) library (version 0017 onwards) , though some features of LiquidCrystal are ommited and additonal features are provided. It supports all features of the LCD03 including custom characters and the ability to read the keypad. Supports Arudino 1.0.0 and newer on avr and ESP8266 architectures.
+LCD03 is an [Arduino](http://arduino.cc/) library for [I2C](http://en.wikipedia.org/wiki/I²C) control of the LCD03 and LCD05 20x4 and 16x2 serial LCD modules with green and blue backlight color from [Robot Electronics](http://www.robot-electronics.co.uk), see [LCD03](http://www.robot-electronics.co.uk/htm/Lcd03tech.htm) datasheet and the [LCD05](http://www.robot-electronics.co.uk/htm/Lcd05tech.htm ) datasheet for details. It aims to maintain compatibility with the Arduino [LiquidCrystal](http://arduino.cc/en/Reference/LiquidCrystal) library (version 0017 onwards) , though some features of LiquidCrystal are ommited and additonal features are provided. It supports all features of the LCD03 including custom characters and the ability to read the keypad. Supports Arudino 1.0.0 and newer on avr and ESP8266 architectures.
 
 The library is released under the GNU LGPL 2.1.
 
@@ -35,12 +35,9 @@ New LCD03 at `i2c_address`. If `i2c_address` is omitted the LCD03's default I2C 
 *i2c_sda (uint8_t): the data (SDA) line pin for I2C (ESP8266 only, optional, defaults to setting SDA from Wire.h)*  
 *i2c_scl (uint8_t): the clock (SCL) line pin for I2C (ESP8266 only, optional, defaults to setting SCL from Wire.h)*  
 
-### begin(cols, rows)
+### begin()
 
-Initialise the display of size `cols` * `rows`, clear the display and set the cursor to the top-left.
-
-*cols (uint8_t): the number of display columns*  
-*rows (uint8_t): the number of display rows*  
+Initialise the display, clear the display and set the cursor to the top-left.
 
 ### clear()
 
@@ -149,6 +146,54 @@ Turn on the LCD backlight.
 
 Turn off the LCD backlight.
 
+### disableMessage()
+
+Disables the display of setup information at power up
+
+### enableMessage()
+
+Enables the display of setup information at power up
+
+### saveMessage() - LCD05 only
+
+Saves current screen and displays it on power up
+
+### setType(cols, rows, color) - LCD05 only
+
+Sets which display is connected to the LCD05 controller
+
+*cols (uint8_t): total columns of the display (16/20)*  
+*rows (uint8_t): total rows of the display (2/4)*
+*color (String): backlight color of the display ('Green'/'Blue')*
+
+### changeAddress(address)
+
+Sets which display is connected to the LCD05 controller
+
+*address (uint8_t): new i2c address of the display, Arduino format (0xC6-0xCE)*
+
+**Possible values for address**: *0xC6, 0xC8,0xCA,0xCC or 0xCE (only even numbers)*
+
+### doubleRateScan()
+
+Increases the frequency of the keypad scan to 20hz
+
+### normalRateScan()
+
+Returns to the default keypad scan frequency of 10hz
+
+### changeContrast(contrast) - LCD05 only
+
+Set the contrast level of the display
+
+*contrast (uint8_t): contrast of the display, Arduino format (0-255)*
+
+### changeBrightness(brightness) - LCD05 only
+
+Set the brightness level of the display
+
+*brightness (uint8_t): brightness of the display, Arduino format (0-255)*
+
 ### bufferFreeBytes()
 
 Return the number of free bytes in the LCD03's buffer.
@@ -174,7 +219,7 @@ LCD03 lcd;
 
 void setup() {
   // Initialise the LCD
-  lcd.begin(20, 4);
+  lcd.begin();
 
   // Turn on the backlight
   lcd.backlight();

@@ -51,7 +51,16 @@
 #define LCD_TABSET 0x12
 #define LCD_BACKLIGHTON 0x13
 #define LCD_BACKLIGHTOFF 0x14
+#define LCD_DISABLEMESSAGE 0x15
+#define LCD_ENABLEMESSAGE 0x16
+#define LCD_SAVEMESSAGE 0x17
+#define LCD_DISPLAYTYPE 0x18
+#define LCD_CHANGEADDRESS 0x19
 #define LCD_CUSTOMCHAR 0x1B
+#define LCD_DOUBLERATESCAN 0x1C
+#define LCD_NORMALRATESCAN 0x1D
+#define LCD_CONTRASTSET 0x1E
+#define LCD_BRIGHTNESSSET 0x1E
 
 // custom chars
 #define LCD_CUSTOMCHAR_BASE 0x80
@@ -80,9 +89,10 @@ public:
   LCD03(char i2c_address=I2C_ADDR);
 #endif
   // LiquidCrystal compatible functions
-  void begin(uint8_t cols, uint8_t rows);
+  void begin();
   void clear();
   void home();
+  uint8_t setType(uint8_t cols, uint8_t rows, String color);
   void setCursor(uint8_t);
   void setCursor(uint8_t, uint8_t);
   size_t write(uint8_t);
@@ -113,6 +123,14 @@ public:
   void tabSet(uint8_t);
   void backlight();
   void noBacklight();
+  void disableMessage();
+  void enableMessage();
+  void saveMessage();
+  void doubleRateScan();
+  void normalRateScan();
+  void changeContrast(uint8_t);
+  void changeBrightness(uint8_t);
+  void changeAddress(uint8_t);
   uint8_t bufferFreeBytes();
   uint16_t readKeypad();
 
@@ -149,7 +167,7 @@ inline void LCD03::home() {
 }
 
 inline void LCD03::noBlink() {
-  send(LCD_CURSORON);
+  send(LCD_CURSOROFF);
 }
 
 inline void LCD03::blink() {
@@ -188,5 +206,24 @@ inline void LCD03::tab() {
   send(LCD_TAB);
 }
 
-#endif
+inline void LCD03::disableMessage() {
+  send(LCD_DISABLEMESSAGE);
+}
 
+inline void LCD03::enableMessage() {
+  send(LCD_ENABLEMESSAGE);
+}
+
+inline void LCD03::saveMessage() {
+  send(LCD_SAVEMESSAGE);
+}
+
+inline void LCD03::doubleRateScan() {
+  send(LCD_DOUBLERATESCAN);
+}
+
+inline void LCD03::normalRateScan() {
+  send(LCD_NORMALRATESCAN);
+}
+
+#endif
