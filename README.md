@@ -35,12 +35,9 @@ New LCD03 at `i2c_address`. If `i2c_address` is omitted the LCD03's default I2C 
 *i2c_sda (uint8_t): the data (SDA) line pin for I2C (ESP8266 only, optional, defaults to setting SDA from Wire.h)*  
 *i2c_scl (uint8_t): the clock (SCL) line pin for I2C (ESP8266 only, optional, defaults to setting SCL from Wire.h)*  
 
-### begin(cols, rows)
+### begin()
 
-Initialise the display of size `cols` * `rows`, clear the display and set the cursor to the top-left.
-
-*cols (uint8_t): the number of display columns*  
-*rows (uint8_t): the number of display rows*  
+Initialise the display, clear the display and set the cursor to the top-left.
 
 ### clear()
 
@@ -148,6 +145,54 @@ Turn on the LCD backlight.
 ### noBacklight()
 
 Turn off the LCD backlight.
+
+### disableMessage() - LCD05
+
+Disables the display of setup information at power up
+
+### enableMessage() - LCD05
+
+Enables the display of setup information at power up
+
+### saveMessage() - LCD05
+
+Saves current screen and displays it on power up
+
+### setType(cols, rows, color) - LCD05
+
+Sets which display is connected to the LCD05 controller
+
+*cols (uint8_t): total columns of the display (16/20)*  
+*rows (uint8_t): total rows of the display (2/4)*
+*color (String): backlight color of the display ('Green'/'Blue')*
+
+### changeAddress(address) - LCD05
+
+Sets which display is connected to the LCD05 controller
+
+*address (uint8_t): new i2c address of the display, Arduino format (0xC6-0xCE)*
+
+**Possible values for address**: *0xC6, 0xC8,0xCA,0xCC or 0xCE (only even numbers)*
+
+### doubleRateScan() - LCD05
+
+Increases the frequency of the keypad scan to 20hz
+
+### normalRateScan() - LCD05
+
+Returns to the default keypad scan frequency of 10hz
+
+### changeContrast(contrast) - LCD05
+
+Set the contrast level of the display
+
+*contrast (uint8_t): contrast of the display, Arduino format (0-255)*
+
+### changeBrightness(brightness) - LCD05
+
+Set the brightness level of the display
+
+*brightness (uint8_t): brightness of the display, Arduino format (0-255)*
 
 ### bufferFreeBytes()
 
