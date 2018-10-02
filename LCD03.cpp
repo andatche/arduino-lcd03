@@ -26,14 +26,14 @@
 char _i2c_address;
 
 #ifdef ARDUINO_ARCH_esp826
-uint8_t _sda_pin;
-uint8_t _scl_pin;
+  uint8_t _sda_pin;
+  uint8_t _scl_pin;
 
-LCD03::LCD03(char i2c_address, uint8_t sda_pin, uint8_t scl_pin) {
-  _sda_pin = sda_pin;
-  _scl_pin = scl_pin;
+  LCD03::LCD03(char i2c_address, uint8_t sda_pin, uint8_t scl_pin) {
+    _sda_pin = sda_pin;
+    _scl_pin = scl_pin;
 #else
-LCD03::LCD03(char i2c_address) {
+  LCD03::LCD03(char i2c_address) {
 #endif
   // Convert 8-bit address from LCD to 7-bit address for Wire
   _i2c_address = i2c_address>>1;
