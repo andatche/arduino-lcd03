@@ -219,7 +219,7 @@ LCD03 lcd;
 
 void setup() {
   // Initialise the LCD
-  lcd.begin(20, 4);
+  lcd.begin();
 
   // Turn on the backlight
   lcd.backlight();
